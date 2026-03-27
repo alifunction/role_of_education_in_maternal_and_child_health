@@ -1,0 +1,1768 @@
+---------------------------------------------------------
+      name:  <unnamed>
+       log:  E:\7th semester Econometrics\data\output\ana
+> lysis.log
+  log type:  text
+ opened on:  27 Mar 2026, 12:02:04
+
+. capture ssc install estout,   replace
+
+. capture ssc install coefplot, replace
+
+. capture ssc install fre,      replace
+
+. use "$datadir/BDNR81FL (Pregnancy and Postnatal Care Recode).DTA
+> ", clear
+file E:\7th semester Econometrics\data\BDNR81FL (Pregnancy and
+    Postnatal Care Recode).DTA/BDNR81FL (Pregnancy and Postnatal
+    Care Recode).DTA not found
+r(601);
+
+. global datadir  "E:\7th semester Econometrics\data"
+
+. use "$datadir/Pregnancy and Postnatal Care Recode.DTA", clear
+
+. ds m14 m15 m2a m45 m13 m1 v133 v106 v025 v190 v012 v024 pidx, no
+> t
+caseid   v215     v3a04    v472g    v714a    m42l     mnb7g
+v000     v216     v3a05    v472h    v715     m42m     mnb7h
+v001     v217     v3a06    v472i    v716     m42n     mnb7i
+v002     v218     v3a07    v472j    v717     m43      mnb7j
+v003     v219     v3a08a   v472k    v719     m44      mnb7x
+v004     v220     v3a08b   v472l    v721     m46      mnb7z
+v005     v221     v3a08c   v472m    v729     m47      mnb10
+v006     v222     v3a08d   v472n    v730     m48      mnb11
+v007     v223     v3a08e   v472o    v731     m49a     mnb12
+v008     v224     v3a08f   v472p    v732     m49b     mh3a
+v008a    v225     v3a08g   v472q    v739     m49c     mh3b
+v009     v226     v3a08h   v472r    v740     m49d     mh3c
+v010     v227     v3a08i   v472s    v741     m49e     mh3d
+v011     v228     v3a08j   v472t    v743a    m49f     mh3e
+v013     v229     v3a08k   v472u    v743b    m49g     mh3f
+v014     v230     v3a08l   v472v    v743c    m49x     mh3g
+v015     v231     v3a08m   v472w    v743d    m49z     mh3h
+v016     v232     v3a08n   v472wa   v743e    m49y     mh3i
+v017     v233     v3a08o   v472wb   v743f    m54      mh5
+v018     v234     v3a08p   v472wc   v744a    m55      mh6
+v019     v235     v3a08q   v472wd   v744b    m57a     mh7
+v019a    v237     v3a08r   v472we   v744c    m57b     mh8
+v020     v238     v3a08s   v473a    v744d    m57c     mh9
+v021     v239     v3a08t   v473b    v744e    m57d     mh10
+v022     v240     v3a08u   v477     v745a    m57e     mh11
+v023     v241     v3a08v   v478     v745b    m57f     mh12
+v026     v242     v3a08w   v479     v745c    m57g     mh13
+v027     v243     v3a08aa  v480     v745d    m57h     mh14
+v028     v244     v3a08ab  v481     v746     m57i     mh15
+v029     v245     v3a08ac  v481a    pidxb    m57j     mh16
+v030     v246     v3a08ad  v481b    pord     m57k     mh17a
+v031     v247a    v3a08ae  v481c    p0       m57l     mh17b
+v032     v247b    v3a08af  v481d    p1       m57lx    mh17c
+v034     v247c    v3a08x   v481e    p2       m57m     mh17d
+v040     v247d    v3a08z   v481f    p3       m57n     mh17e
+v042     v247e    v3a09a   v481g    p4       m57o     mh18a
+v044     v247f    v3a09b   v481h    p5       m57p     mh18b
+v045a    v247g    v3a10    v481x    p6       m57q     mh18c
+v045b    v247h    v3a11    v482a    p7       m57r     mh18d
+v045c    v247i    v3a12    v482b    p8       m57rx    mh19
+v046     v247j    v3a13    v482c    p9       m57na    mh20
+v047     v247k    v3a14    v483a    p10      m57nb    mh21a
+v048     v247l    v401     v483b    p11      m57nc    mh21b
+v101     v247x    v404     v484a    p12      m57nd    mh21c
+v102     v247y    v405     v484b    p13      m57ne    mh21d
+v103     v248     v406     v485a    p15      m57s     mh21e
+v104     v249     v407     v485b    p16      m57t     mh21f
+v105     v310     v408     v501     p17      m57u     mh22a
+v105a    v311     v415     v502     p18      m57v     mh22b
+v107     v312     v416     v503     p19      m57x     mh22c
+v113     v313     v417     v504     p20      m60      mh22d
+v115     v315     v418     v505     p21      m61      mh22e
+v116     v316     v418a    v506     p30      m62      mh22f
+v119     v317     v419     v507     p31      m63      mh23
+v120     v318     v420     v508     p32      m64      mh24
+v121     v319     v421     v509     midx     m66      mh25
+v122     v320     v426     v510     midxp    m67      seligbm
+v123     v321     v437     v511     m1a      m68      sbpbg
+v124     v321a    v438     v507a    m1b      m69      sdist
+v125     v322     v445     v508a    m1c      m70      sqtype
+v127     v323     v447     v509a    m1d      m71      s111a
+v128     v323a    v446a    v510a    m1e      m72      s113
+v129     v325a    v446d    v511a    m2b      m73      s113a
+v130     v326     v447a    v512     m2c      m74      s114
+v131     v327     v452a    v513     m2d      m75      s115
+v134     v337     v452b    v525     m2e      m76      s115_1
+v135     v359     v452c    v527     m2f      m77      s230a
+v136     v360     v453     v528     m2g      m77a     s230c
+v137     v361     v454     v529     m2h      m78a     s331ay
+v138     v362     v455     v530     m2i      m78b     s331b
+v139     v363     v456     v531     m2j      m78c     s331ca
+v140     v364     v457     v532     m2l      m78d     s331cb
+v141     v367     v458     v535     m2m      m78e     s331cc
+v149     v367a    v459     v536     m2k      m78f     s331cx
+v150     v372     v460     v537     m2n      m78g     s331d
+v151     v372a    v461     v538     m3a      m78h     s331e
+v152     v375a    v462     v539     m3b      m78i     s636dn
+v153     v376     v463a    v540     m3c      m78j     s709a
+awfactt  v376a    v463b    v541     m3d      m78k     s716a
+awfactu  v379     v463c    v542     m3e      m78l     s716b
+awfactr  v380     v463d    v543a    m3f      m80      s716c
+awfacte  v384a    v463e    v543b    m3h      m81a     s716d
+awfactw  v384b    v463f    v543c    m3i      m81b     s716e
+v155     v384c    v463g    v543d    m3j      m81c     s716f
+v156     v384d    v463h    v543e    m3g      m81d     s723a
+v157     v384e    v463i    v543f    m3k      m81e     s812a
+v158     v384f    v463j    v543g    m3l      m81f     s812b
+v159     v384g    v463k    v543x    m3m      m81g     s816a
+v160     v384h    v463l    v544     m3o      m81h     s816b
+v161     v384i    v463x    v602     m3x      m81i     s903
+v166     v384j    v463z    v603     m3n      m81j     s903a
+v167     v384k    v463aa   v604     m4       m81k     s904
+v168     v393     v463ab   v605     m5       m81l     s905
+v169a    v393a    v464     v613     m6       m81m     s1115a
+v169b    v394     v466     v614     m7       m81n     s905_1
+v169c    v395     v467a    v616     m8       m81o     smth6
+v170     v3a00a   v467b    v621     m9       m81p     idx92
+v171a    v3a00b   v467c    v623     m10      m81q     idx92p
+v171b    v3a00c   v467d    v624     m11      m81r     s228bd
+v172     v3a00d   v467e    v625     m13a     m81na    s228bm
+v173     v3a00e   v467f    v626     m17      m81nb    s228by
+v174m    v3a00f   v467g    v625a    m17a     m81nc    idx94
+v174y    v3a00g   v467h    v626a    m18      m81nd    idx94p
+v175     v3a00h   v467i    v627     m19      m81ne    s440
+v176     v3a00i   v467j    v628     m19a     m81s     s435a
+v177     v3a00q   v467k    v629     m27      m81t     s435ba
+v191     v3a00j   v467l    v631     m28      m81u     s435bb
+v190a    v3a00k   v467m    v632     m29      m81v     s435bc
+v191a    v3a00l   v468     v632a    m34      m81w     s435bd
+ml101    v3a00m   v471a    v633a    m35      m81x     s435be
+v201     v3a00n   v471b    v633b    m36      m82      s435bf
+v202     v3a00o   v471c    v633c    m38      ml0      s435bg
+v203     v3a00p   v471cs   v633d    m39a     ml1      s435bh
+v204     v3a00r   v471d    v633e    m39      ml2      s436a
+v205     v3a00s   v471e    v633f    m42a     mnb1     s436ba
+v206     v3a00t   v471f    v633g    m42b     mnb3     s436bb
+v207     v3a00u   v471g    v634     m42c     mnb4     s436bc
+v208     v3a00v   v471h    v635     m42d     mnb5     s436bd
+v209     v3a00w   v471i    v636     m42e     mnb6     s436be
+v210     v3a00x   v472a    v701     m42f     mnb7a    s436bf
+v211     v3a00y   v472b    v702     m42g     mnb7b    s436bg
+v212     v3a00z   v472c    v704     m42h     mnb7c    s436bx
+v213     v3a01    v472d    v704a    m42i     mnb7d    s446
+v214     v3a02    v472e    v705     m42j     mnb7e
+v214a    v3a03    v472f    v714     m42k     mnb7f
+
+. describe m14 m15 m2a m45 m13 m1 v133 v106 v025 v190 v012 v024 pi
+> dx
+
+              storage   display    value
+variable name   type    format     label      variable label
+------------------------------------------------------------------
+m14             byte    %8.0g      M14        number of antenatal
+                                              visits during
+                                              pregnancy
+m15             byte    %8.0g      M15        place of delivery
+m2a             byte    %8.0g      M2A        prenatal: doctor
+m45             byte    %8.0g      M45        during pregnancy,
+                                              given or bought iron
+                                              tablets/syrup
+m13             byte    %8.0g      M13        timing of 1st
+                                              antenatal check
+                                              (months)
+m1              byte    %8.0g      M1         number of tetanus
+                                              injections before
+                                              birth
+v133            byte    %8.0g      V133       education in single
+                                              years
+v106            byte    %8.0g      V106       highest educational
+                                              level
+v025            byte    %8.0g      V025       type of place of
+                                              residence
+v190            byte    %8.0g      V190       wealth index
+                                              combined
+v012            byte    %8.0g                 respondent's current
+                                              age
+v024            byte    %8.0g      V024       division
+pidx            byte    %8.0g                 pregnancy column
+                                              number
+
+. count
+  6,315
+
+. gen     anc4 = .
+(6,315 missing values generated)
+
+. replace anc4 = 1  if m14 >= 4 & m14 < 90
+(2,101 real changes made)
+
+. replace anc4 = 0  if m14 <  4 & m14 != .
+(3,085 real changes made)
+
+. label var anc4 "Received 4+ ANC visits (1=yes)"
+
+. label define yesno 0 "No" 1 "Yes"
+
+. label values anc4 yesno
+
+. gen     facility_del = .
+(6,315 missing values generated)
+
+. replace facility_del = 1 if inrange(m15, 20, 29) | inrange(m15, 
+> 31, 46)
+(3,482 real changes made)
+
+. replace facility_del = 0 if inrange(m15, 10, 19)
+(1,970 real changes made)
+
+. label var facility_del "Delivered in health facility (1=yes)"
+
+. label values facility_del yesno
+
+. gen     anc_doctor = .
+(6,315 missing values generated)
+
+. replace anc_doctor = 1 if m2a == 1
+(4,319 real changes made)
+
+. replace anc_doctor = 0 if m2a == 0
+(868 real changes made)
+
+. label var anc_doctor "Doctor-attended ANC (1=yes)"
+
+. label values anc_doctor yesno
+
+. gen     iron_supp = .
+(6,315 missing values generated)
+
+. replace iron_supp = 1 if m45 == 1
+(4,098 real changes made)
+
+. replace iron_supp = 0 if m45 == 0
+(1,087 real changes made)
+
+. label var iron_supp "Received iron supplementation (1=yes)"
+
+. label values iron_supp yesno
+
+. gen     anc_first = .
+(6,315 missing values generated)
+
+. replace anc_first = 1 if m13 <= 3  & m13 != .
+(2,006 real changes made)
+
+. replace anc_first = 0 if m13  > 3  & m13 < 90
+(2,752 real changes made)
+
+. label var anc_first "1st ANC visit in 1st trimester (1=yes)"
+
+. label values anc_first yesno
+
+. tab1 anc4 facility_del anc_doctor iron_supp anc_first
+
+-> tabulation of anc4  
+
+Received 4+ |
+ ANC visits |
+    (1=yes) |      Freq.     Percent        Cum.
+------------+-----------------------------------
+         No |      3,085       59.49       59.49
+        Yes |      2,101       40.51      100.00
+------------+-----------------------------------
+      Total |      5,186      100.00
+
+-> tabulation of facility_del  
+
+  Delivered |
+  in health |
+   facility |
+    (1=yes) |      Freq.     Percent        Cum.
+------------+-----------------------------------
+         No |      1,970       36.13       36.13
+        Yes |      3,482       63.87      100.00
+------------+-----------------------------------
+      Total |      5,452      100.00
+
+-> tabulation of anc_doctor  
+
+Doctor-atte |
+   nded ANC |
+    (1=yes) |      Freq.     Percent        Cum.
+------------+-----------------------------------
+         No |        868       16.73       16.73
+        Yes |      4,319       83.27      100.00
+------------+-----------------------------------
+      Total |      5,187      100.00
+
+-> tabulation of iron_supp  
+
+   Received |
+       iron |
+supplementa |
+       tion |
+    (1=yes) |      Freq.     Percent        Cum.
+------------+-----------------------------------
+         No |      1,087       20.96       20.96
+        Yes |      4,098       79.04      100.00
+------------+-----------------------------------
+      Total |      5,185      100.00
+
+-> tabulation of anc_first  
+
+    1st ANC |
+   visit in |
+        1st |
+  trimester |
+    (1=yes) |      Freq.     Percent        Cum.
+------------+-----------------------------------
+         No |      2,752       57.84       57.84
+        Yes |      2,006       42.16      100.00
+------------+-----------------------------------
+      Total |      4,758      100.00
+
+. clonevar edu_level = v106
+
+. label var edu_level "Maternal education level"
+
+. label define edu_lbl 0 "No education" 1 "Primary" 2 "Secondary" 
+> 3 "Higher"
+
+. label values edu_level edu_lbl
+
+. tab edu_level, gen(edu_d)
+
+    Maternal |
+   education |
+       level |      Freq.     Percent        Cum.
+-------------+-----------------------------------
+No education |        345        5.46        5.46
+     Primary |      1,473       23.33       28.79
+   Secondary |      3,286       52.03       80.82
+      Higher |      1,211       19.18      100.00
+-------------+-----------------------------------
+       Total |      6,315      100.00
+
+. rename edu_d1 edu_none
+
+. rename edu_d2 edu_primary
+
+. rename edu_d3 edu_secondary
+
+. rename edu_d4 edu_higher
+
+. label var edu_none      "Education: None (ref.)"
+
+. label var edu_primary   "Education: Primary"
+
+. label var edu_secondary "Education: Secondary"
+
+. label var edu_higher    "Education: Higher"
+
+. gen edu_yrs = v133 if v133 <= 20
+
+. label var edu_yrs "Years of schooling"
+
+. clonevar wealth = v190
+
+. label var wealth "Wealth quintile (1=poorest, 5=richest)"
+
+. label define wealth_lbl 1 "Poorest" 2 "Poor" 3 "Middle" 4 "Rich"
+>  5 "Richest"
+
+. label values wealth wealth_lbl
+
+. tab wealth, gen(wealth_d)
+
+     Wealth |
+   quintile |
+(1=poorest, |
+ 5=richest) |      Freq.     Percent        Cum.
+------------+-----------------------------------
+    Poorest |      1,318       20.87       20.87
+       Poor |      1,261       19.97       40.84
+     Middle |      1,249       19.78       60.62
+       Rich |      1,251       19.81       80.43
+    Richest |      1,236       19.57      100.00
+------------+-----------------------------------
+      Total |      6,315      100.00
+
+. rename wealth_d1 wealth_q1
+
+. rename wealth_d2 wealth_q2
+
+. rename wealth_d3 wealth_q3
+
+. rename wealth_d4 wealth_q4
+
+. rename wealth_d5 wealth_q5
+
+. label var wealth_q1 "Poorest (ref.)"
+
+. label var wealth_q2 "Poor (Q2)"
+
+. label var wealth_q3 "Middle (Q3)"
+
+. label var wealth_q4 "Rich (Q4)"
+
+. label var wealth_q5 "Richest (Q5)"
+
+. gen     rural = (v025 == 2)
+
+. replace rural = .  if v025 == .
+(0 real changes made)
+
+. label var rural "Rural residence (1=rural, 0=urban)"
+
+. label values rural yesno
+
+. clonevar mother_age = v012
+
+. label var mother_age "Mother's current age (years)"
+
+. quietly sum mother_age
+
+. gen mother_age_std = (mother_age - r(mean)) / r(sd)
+
+. label var mother_age_std "Mother's age (standardised)"
+
+. gen mother_age_sq = mother_age^2
+
+. label var mother_age_sq "Mother's age squared"
+
+. gen     parity = 1  if pidx == 1
+(646 missing values generated)
+
+. replace parity = 2  if pidx == 2
+(613 real changes made)
+
+. replace parity = 3  if pidx >= 3 & pidx != .
+(33 real changes made)
+
+. label var parity "Birth parity"
+
+. label define parity_lbl 1 "First birth" 2 "Second birth" 3 "Thir
+> d or higher"
+
+. label values parity parity_lbl
+
+. tab parity, gen(par_d)
+
+   Birth parity |      Freq.     Percent        Cum.
+----------------+-----------------------------------
+    First birth |      5,669       89.77       89.77
+   Second birth |        613        9.71       99.48
+Third or higher |         33        0.52      100.00
+----------------+-----------------------------------
+          Total |      6,315      100.00
+
+. rename par_d1 par_1
+
+. rename par_d2 par_2
+
+. rename par_d3 par_3plus
+
+. label var par_1     "Parity: 1st (ref.)"
+
+. label var par_2     "Parity: 2nd"
+
+. label var par_3plus "Parity: 3rd+"
+
+. clonevar division = v024
+
+. label var division "Division"
+
+. label define div_lbl 1 "Barisal" 2 "Chattogram" 3 "Dhaka" 4 "Khu
+> lna" ///
+invalid syntax
+r(198);
+
+.                      5 "Mymensingh" 6 "Rajshahi" 7 "Rangpur" 8 "
+> Sylhet"
+5 is not a valid command name
+r(199);
+
+. label values division div_lbl
+
+. label define div_lbl 1 "Barisal" 2 "Chattogram" 3 "Dhaka" 4 "Khu
+> lna" 5 "Mymensingh" 6 "Rajshahi" 7 "Rangpur" 8 "Sylhet"
+
+. tab division, gen(div_d)
+
+   Division |      Freq.     Percent        Cum.
+------------+-----------------------------------
+    Barisal |        670       10.61       10.61
+ Chattogram |      1,067       16.90       27.51
+      Dhaka |        960       15.20       42.71
+     Khulna |        705       11.16       53.87
+ Mymensingh |        765       12.11       65.99
+   Rajshahi |        632       10.01       75.99
+    Rangpur |        753       11.92       87.92
+     Sylhet |        763       12.08      100.00
+------------+-----------------------------------
+      Total |      6,315      100.00
+
+. rename div_d1 div_Barisal
+
+. rename div_d2 div_Chattogram
+
+. rename div_d3 div_Dhaka
+
+. rename div_d4 div_Khulna
+
+. rename div_d5 div_Mymensingh
+
+. rename div_d6 div_Rajshahi
+
+. rename div_d7 div_Rangpur
+
+. rename div_d8 div_Sylhet
+
+. gen weight = v005 / 1000000
+
+. label var weight "Individual sample weight"
+
+. estpost summarize ///
+/ invalid name
+r(198);
+
+.     anc4 facility_del anc_doctor iron_supp anc_first ///
+command anc4 is unrecognized
+r(199);
+
+.     edu_none edu_primary edu_secondary edu_higher ///
+command edu_none is unrecognized
+r(199);
+
+.     wealth rural mother_age parity, ///
+command wealth is unrecognized
+r(199);
+
+.     detail
+command detail is unrecognized
+r(199);
+
+. estpost summarize anc4 facility_del anc_doctor iron_supp anc_fir
+> st edu_none edu_primary edu_secondary edu_higher wealth rural mo
+> ther_age parity, detail
+
+             |  e(count)   e(sum_w)    e(mean)     e(Var) 
+-------------+--------------------------------------------
+        anc4 |      5186       5186   .4051292    .241046 
+facility_del |      5452       5452   .6386647   .2308144 
+  anc_doctor |      5187       5187   .8326586   .1393651 
+   iron_supp |      5185       5185   .7903568   .1657249 
+   anc_first |      4758       4758   .4216057   .2439056 
+    edu_none |      6315       6315   .0546318   .0516554 
+ edu_primary |      6315       6315   .2332542    .178875 
+edu_second~y |      6315       6315   .5203484   .2496255 
+  edu_higher |      6315       6315   .1917656   .1550161 
+      wealth |      6315       6315   2.972447   2.015079 
+       rural |      6315       6315   .6619161   .2238186 
+  mother_age |      6315       6315   25.98416   33.90789 
+      parity |      6315       6315   1.107522    .106429 
+
+             |     e(sd)  e(skewn~)  e(kurto~)     e(sum) 
+-------------+--------------------------------------------
+        anc4 |  .4909644   .3865044   1.149386       2101 
+facility_del |  .4804315  -.5773036   1.333279       3482 
+  anc_doctor |  .3733164  -1.782352   4.176779       4319 
+   iron_supp |  .4070932  -1.426626   3.035261       4098 
+   anc_first |   .493868    .317504   1.100809       2006 
+    edu_none |  .2272782   3.919456   16.36214        345 
+ edu_primary |  .4229361     1.2615   2.591382       1473 
+edu_second~y |  .4996253   -.081461   1.006636       3286 
+  edu_higher |  .3937209   1.565875   3.451963       1211 
+      wealth |  1.419535   .0213646   1.691512      18771 
+       rural |  .4730947  -.6845517   1.468611       4180 
+  mother_age |  5.823048   .5279814   2.733203     164090 
+      parity |  .3262346   2.976091   11.36875       6994 
+
+             |    e(min)     e(max)      e(p1)      e(p5) 
+-------------+--------------------------------------------
+        anc4 |         0          1          0          0 
+facility_del |         0          1          0          0 
+  anc_doctor |         0          1          0          0 
+   iron_supp |         0          1          0          0 
+   anc_first |         0          1          0          0 
+    edu_none |         0          1          0          0 
+ edu_primary |         0          1          0          0 
+edu_second~y |         0          1          0          0 
+  edu_higher |         0          1          0          0 
+      wealth |         1          5          1          1 
+       rural |         0          1          0          0 
+  mother_age |        15         49         16         18 
+      parity |         1          3          1          1 
+
+             |    e(p10)     e(p25)     e(p50)     e(p75) 
+-------------+--------------------------------------------
+        anc4 |         0          0          0          1 
+facility_del |         0          0          1          1 
+  anc_doctor |         0          1          1          1 
+   iron_supp |         0          1          1          1 
+   anc_first |         0          0          0          1 
+    edu_none |         0          0          0          0 
+ edu_primary |         0          0          0          0 
+edu_second~y |         0          0          1          1 
+  edu_higher |         0          0          0          0 
+      wealth |         1          2          3          4 
+       rural |         0          0          1          1 
+  mother_age |        19         21         25         30 
+      parity |         1          1          1          1 
+
+             |    e(p90)     e(p95)     e(p99) 
+-------------+---------------------------------
+        anc4 |         1          1          1 
+facility_del |         1          1          1 
+  anc_doctor |         1          1          1 
+   iron_supp |         1          1          1 
+   anc_first |         1          1          1 
+    edu_none |         0          1          1 
+ edu_primary |         1          1          1 
+edu_second~y |         1          1          1 
+  edu_higher |         1          1          1 
+      wealth |         5          5          5 
+       rural |         1          1          1 
+  mother_age |        34         36         40 
+      parity |         2          2          2 
+
+. esttab using "$outdir/table1_descriptives.csv", cells("mean(fmt(
+> 3)) sd(fmt(3)) min max count(fmt(0))") title("Table 1: Descripti
+> ve Statistics — BDHS 2022") label replace
+invalid syntax
+r(197);
+
+. esttab using "$outdir/table1_descriptives.csv", cells("mean(fmt(
+> 3)) sd(fmt(3)) min max count(fmt(0))"), title("Table 1: Descript
+> ive Statistics — BDHS 2022") label replace
+invalid syntax
+r(197);
+
+. esttab using "$outdir/table1_descriptives.csv", cells("mean(fmt(
+> 3)) sd(fmt(3)) min max count(fmt(0))") title("Table 1: Descripti
+> ve Statistics — BDHS 2022") 
+invalid syntax
+r(197);
+
+. label replace
+invalid syntax
+r(198);
+
+. esttab using "$outdir/table1_descriptives.csv", cells("mean(fmt(
+> 3)) sd(fmt(3)) min max count(fmt(0))") title("Table 1: Descripti
+> ve Statistics") label replace
+invalid syntax
+r(197);
+
+. esttab using "$outdir/table1_descriptives.csv", cells("mean(fmt(
+> 3)) sd(fmt(3)) min max count(fmt(0))") title("Table 1: Descripti
+> ve Statistics — BDHS 2022") label replace
+invalid syntax
+r(197);
+
+. esttab using "$outdir/table1_descriptives.csv" cells("mean(fmt(3
+> )) sd(fmt(3)) min max count(fmt(0))") title("Table 1: Descriptiv
+> e Statistics — BDHS 2022") label replace
+invalid syntax
+r(197);
+
+. help esttab
+
+. esttab using "$outdir/table1_descriptives.csv", cells("mean(fmt(3)) sd(fmt(3)) min max count(fmt(0))") title("Table 1: Descriptive Statistics — BDHS 20
+> 22") label replace
+invalid syntax
+r(197);
+
+. esttab using "$outdir/table1_descriptives.csv", cells("mean(fmt(3)) sd(fmt(3)) min max count(fmt(0))") title("Table 1: Descriptive Statistics") label r
+> eplace
+invalid syntax
+r(197);
+
+. esttab using "$outdir/table1_descriptives.csv", ///
+invalid syntax
+r(197);
+
+.     cells("mean(fmt(3)) sd(fmt(3)) min(fmt(3)) max(fmt(3)) count(fmt(0))") ///
+command cells is unrecognized
+r(199);
+
+.     title("Table 1: Descriptive Statistics") ///
+command title is unrecognized
+r(199);
+
+.     label replace
+invalid syntax
+r(198);
+
+. esttab using "$outdir/table1_descriptives.csv", cells("mean(fmt(3)) sd(fmt(3)) min(fmt(3)) max(fmt(3)) count(fmt(0))") title("Table 1: Descriptive Stat
+> istics") label replace
+invalid syntax
+r(197);
+
+. tabstat anc4 facility_del anc_doctor iron_supp anc_first edu_none edu_primary edu_secondary edu_higher wealth rural mother_age parity, statistics(mean 
+> sd min max n) columns(statistics) save
+
+    variable |      mean        sd       min       max         N
+-------------+--------------------------------------------------
+        anc4 |  .4051292  .4909644         0         1      5186
+facility_del |  .6386647  .4804315         0         1      5452
+  anc_doctor |  .8326586  .3733164         0         1      5187
+   iron_supp |  .7903568  .4070932         0         1      5185
+   anc_first |  .4216057   .493868         0         1      4758
+    edu_none |  .0546318  .2272782         0         1      6315
+ edu_primary |  .2332542  .4229361         0         1      6315
+edu_second~y |  .5203484  .4996253         0         1      6315
+  edu_higher |  .1917656  .3937209         0         1      6315
+      wealth |  2.972447  1.419535         1         5      6315
+       rural |  .6619161  .4730947         0         1      6315
+  mother_age |  25.98416  5.823048        15        49      6315
+      parity |  1.107522  .3262346         1         3      6315
+----------------------------------------------------------------
+
+. ssc install outreg2, replace
+checking outreg2 consistency and verifying not already installed...
+installing into c:\ado\plus\...
+installation complete.
+
+. 
+. estpost summarize anc4 facility_del anc_doctor iron_supp anc_first edu_none edu_primary edu_secondary edu_higher wealth rural mother_age parity
+
+             |  e(count)   e(sum_w)    e(mean)     e(Var)      e(sd)     e(min)     e(max)     e(sum) 
+-------------+----------------------------------------------------------------------------------------
+        anc4 |      5186       5186   .4051292    .241046   .4909644          0          1       2101 
+facility_del |      5452       5452   .6386647   .2308144   .4804315          0          1       3482 
+  anc_doctor |      5187       5187   .8326586   .1393651   .3733164          0          1       4319 
+   iron_supp |      5185       5185   .7903568   .1657249   .4070932          0          1       4098 
+   anc_first |      4758       4758   .4216057   .2439056    .493868          0          1       2006 
+    edu_none |      6315       6315   .0546318   .0516554   .2272782          0          1        345 
+ edu_primary |      6315       6315   .2332542    .178875   .4229361          0          1       1473 
+edu_second~y |      6315       6315   .5203484   .2496255   .4996253          0          1       3286 
+  edu_higher |      6315       6315   .1917656   .1550161   .3937209          0          1       1211 
+      wealth |      6315       6315   2.972447   2.015079   1.419535          1          5      18771 
+       rural |      6315       6315   .6619161   .2238186   .4730947          0          1       4180 
+  mother_age |      6315       6315   25.98416   33.90789   5.823048         15         49     164090 
+      parity |      6315       6315   1.107522    .106429   .3262346          1          3       6994 
+
+. 
+. outreg2 using "$outdir/table1_descriptives.doc", sum(log) eqkeep(N mean sd min max) title("Table 1: Descriptive Statistics") replace
+matsize too small
+    You have attempted to create a matrix with too many rows or columns or attempted to fit a model with too many variables.  You need to increase
+    matsize; it is currently 400.  Use set matsize; see help matsize.
+
+    If you are using factor variables and included an interaction that has lots of missing cells, either increase matsize or set emptycells drop to
+    reduce the required matrix size; see help set emptycells.
+
+    If you are using factor variables, you might have accidentally treated a continuous variable as a categorical, resulting in lots of categories.
+    Use the c. operator on such variables.
+r(908);
+
+. set matsize 400
+
+. outreg2 using "$outdir/table1_descriptives.doc", sum(log) eqkeep(N mean sd min max) title("Table 1: Descriptive Statistics") replace
+matsize too small
+    You have attempted to create a matrix with too many rows or columns or attempted to fit a model with too many variables.  You need to increase
+    matsize; it is currently 400.  Use set matsize; see help matsize.
+
+    If you are using factor variables and included an interaction that has lots of missing cells, either increase matsize or set emptycells drop to
+    reduce the required matrix size; see help set emptycells.
+
+    If you are using factor variables, you might have accidentally treated a continuous variable as a categorical, resulting in lots of categories.
+    Use the c. operator on such variables.
+r(908);
+
+. set matsize 800
+
+. outreg2 using "$outdir/table1_descriptives.doc", sum(log) eqkeep(N mean sd min max) title("Table 1: Descriptive Statistics") replace
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+        pidx |      6,315    1.108155    .3308473          1          4
+        v001 |      6,315    333.2401    200.3641          1        675
+        v002 |      6,315    59.10657     38.4248          1        220
+        v003 |      6,315    2.959145    1.756091          1         23
+        v004 |      6,315    333.2401    200.3641          1        675
+-------------+---------------------------------------------------------
+        v005 |      6,315     1010455    515109.7      91325    3891736
+        v006 |      6,315    9.832621    1.296305          6         12
+        v007 |      6,315        2022           0       2022       2022
+        v008 |      6,315    1473.833    1.296305       1470       1476
+       v008a |      6,315    44842.62    39.16561      44739      44905
+-------------+---------------------------------------------------------
+        v009 |      6,315    6.217419    3.638836          1         12
+        v010 |      6,315     1995.84    5.831782       1972       2007
+        v011 |      6,315    1156.296    69.91706        875       1293
+        v012 |      6,315    25.98416    5.823048         15         49
+        v013 |      6,315    2.809976    1.208667          1          7
+-------------+---------------------------------------------------------
+        v014 |      6,315    3.037213    2.353205          1          6
+        v015 |      6,315           1           0          1          1
+        v016 |      6,315    13.47268    7.844809          1         31
+        v017 |      6,315        1405           0       1405       1405
+        v018 |      6,315    11.16738    1.296305          9         15
+-------------+---------------------------------------------------------
+        v019 |      6,315    69.83262    1.296305         66         72
+       v019a |      6,315           2           0          2          2
+        v020 |      6,315           1           0          1          1
+        v021 |      6,315    333.2401    200.3641          1        675
+        v022 |      6,315    8.370071    4.629821          1         16
+-------------+---------------------------------------------------------
+        v023 |      6,315    8.370071    4.629821          1         16
+        v024 |      6,315    4.354078    2.277275          1          8
+        v025 |      6,315    1.661916    .4730947          1          2
+        v026 |      6,315    2.400317    1.012435          0          3
+        v027 |      6,315    1.143785    .4380254          1          5
+-------------+---------------------------------------------------------
+        v028 |      6,315    1058.857    580.7434        101       2008
+        v030 |      6,315    1055.709    580.6757        100       2000
+        v040 |      6,315    17.00348    12.19942          0        122
+       v045a |      6,315           2           0          2          2
+       v045b |      6,315    2.001425    .0898624          1          6
+-------------+---------------------------------------------------------
+       v045c |      6,315    2.013935    .2423272          1          6
+        v046 |      6,315    .0028504    .0533168          0          1
+        v047 |      6,315    10.55709    5.806757          1         20
+        v048 |      6,315    1055.709    580.6757        100       2000
+        v101 |      6,315    4.354078    2.277275          1          8
+-------------+---------------------------------------------------------
+        v102 |      6,315    1.661916    .4730947          1          2
+        v104 |      6,315    27.78511    37.14174          0         96
+        v105 |      4,873    1.965319    .5870697          0          3
+       v105a |      4,873    4.469116    3.941162          1         96
+        v106 |      6,315    1.849248    .7879843          0          3
+-------------+---------------------------------------------------------
+        v107 |      6,315    8.682819    21.28641          0         97
+        v113 |      6,315    29.96437    25.29673         11         97
+        v115 |        739         997           0        997        997
+        v116 |      6,315    27.97102    25.70633         11         97
+        v119 |      6,315    1.689628     1.93658          0          7
+-------------+---------------------------------------------------------
+        v120 |      6,315    .8254949    2.249404          0          7
+        v121 |      6,315    1.251623    2.144937          0          7
+        v122 |      6,315    1.293745    2.129707          0          7
+        v123 |      6,315    1.030404     2.21007          0          7
+        v124 |      6,315    .9570863    2.226392          0          7
+-------------+---------------------------------------------------------
+        v125 |      6,315    .8340459     2.24815          0          7
+        v127 |      6,315    31.28694    26.25786         11         97
+        v128 |      6,315    40.46334    21.30974         12         97
+        v129 |      6,315    39.76279    21.44712         11         97
+        v130 |      6,315    1.121457    1.720299          1         96
+-------------+---------------------------------------------------------
+        v133 |      6,315     7.90293    3.913976          0         18
+        v134 |      6,315    2.400317    1.012435          0          3
+        v135 |      6,315    1.117023    .3214731          1          2
+        v136 |      6,315    5.718131    2.343967          1         25
+        v137 |      6,315    1.170705    .7830947          0          6
+-------------+---------------------------------------------------------
+        v138 |      6,315    1.390816     .666577          1          7
+        v139 |      6,315    15.18749    29.86279          1         97
+        v140 |      6,315    2.285986    1.772967          1          7
+        v141 |      6,315      2.9308    1.766311          0          7
+        v149 |      6,315    3.004276    1.394528          0          5
+-------------+---------------------------------------------------------
+        v150 |      6,315    2.913381     1.78126          1         12
+        v151 |      6,315    1.111322    .3145557          1          2
+        v152 |      6,315    43.77941    14.54054         16         95
+        v153 |      6,315    .8277118    2.249082          0          7
+     awfactt |      6,315     124.569    57.46073        100        693
+-------------+---------------------------------------------------------
+     awfactu |      6,315    125.5115    61.00183        100        876
+     awfactr |      6,315    126.1289    70.19632        100       1083
+     awfacte |      6,315    123.4652    60.57468        100        816
+     awfactw |      6,315    123.5146     54.8588        100        744
+        v155 |      6,315    1.619952    .6885973          0          2
+-------------+---------------------------------------------------------
+        v157 |      6,315    .1075218    .3947696          0          2
+        v158 |      6,315    .0503563    .2734089          0          2
+        v159 |      6,315    .9987332    .9627189          0          2
+        v160 |      6,304    1.083439    2.198615          0          7
+        v161 |        739          97           0         97         97
+-------------+---------------------------------------------------------
+       v169a |      6,315     .701346     .457704          0          1
+       v169b |      6,315    .2539984    .4353312          0          1
+       v169c |      4,429    .5147889    .4998377          0          1
+        v170 |      6,315    .1656374    .3717842          0          1
+       v171a |      6,315    .3341251    .4872456          0          2
+-------------+---------------------------------------------------------
+       v171b |      2,016    2.663194    .6721356          0          3
+       v174m |      1,816     13.5033    24.75822          1         98
+       v174y |      1,816    2423.945    1750.143       2017       9998
+        v175 |      4,873    3.462549    6.112375          1         96
+        v177 |      1,046    .6615679    .4734027          0          1
+-------------+---------------------------------------------------------
+        v190 |      6,315    2.972447    1.419535          1          5
+        v191 |      6,315   -2295.933    97122.91    -187614     361319
+       v190a |      6,315     2.88076    1.425991          1          5
+       v191a |      6,315   -740.9053    100576.4    -233964     339907
+        v201 |      6,315    2.005542    1.153063          0         10
+-------------+---------------------------------------------------------
+        v202 |      6,315    .8831354    .8256033          0          6
+        v203 |      6,315    .9211401    .8820822          0          5
+        v204 |      6,315    .0465558    .2355459          0          3
+        v205 |      6,315    .0497229    .2524467          0          3
+        v206 |      6,315     .060966    .2589935          0          4
+-------------+---------------------------------------------------------
+        v207 |      6,315    .0440222    .2278384          0          5
+        v208 |      6,315    1.139351    .5632853          0          4
+        v209 |      6,315    .3954078     .505539          0          2
+        v210 |      6,315    .0125099    .1111546          0          1
+        v211 |      6,116    1391.862    68.35882       1114       1476
+-------------+---------------------------------------------------------
+        v212 |      6,116    19.29823    3.569747         12         40
+        v213 |      6,315    .0462391    .2100191          0          1
+        v214 |        292    4.993151    2.292964          1         10
+       v214a |        292    198.9521    23.09619        106        210
+        v215 |      6,315     263.289     258.332        100        995
+-------------+---------------------------------------------------------
+        v216 |      6,315    .6853523    .4644122          0          1
+        v218 |      6,315    1.900554    1.074184          0          9
+        v219 |      6,315    1.946793     1.06341          0          9
+        v220 |      6,315     1.94331    1.047472          0          6
+        v221 |      6,116     45.9364    133.5449          0        996
+-------------+---------------------------------------------------------
+        v222 |      6,116    21.74477    25.81212          0        270
+        v223 |        292           7           0          7          7
+        v224 |      6,315    2.005542    1.153063          0         10
+        v225 |        292    1.434932    .6252524          1          3
+        v226 |      6,315    190.6383    390.5752          0        997
+-------------+---------------------------------------------------------
+        v227 |      6,315    .5072051    1.773008          0          9
+        v228 |      6,315    .3198733    .4664642          0          1
+        v229 |      2,020     5.90198     3.51707          1         12
+        v230 |      2,020    2018.622    3.872843       2000       2022
+        v231 |      2,020    1429.369    46.40472       1210       1475
+-------------+---------------------------------------------------------
+        v232 |      2,020    1.500495    .8662397          0          5
+        v233 |      2,020     3.59901    2.384239          1         10
+        v234 |      2,020    .2321782    .4223266          0          1
+        v235 |      6,315    1.022486     1.14728          0          5
+        v237 |      6,315    .0063341     .079341          0          1
+-------------+---------------------------------------------------------
+        v238 |      6,315    .9881235    .4460273          0          3
+        v239 |      2,020    .2881188    .4529988          0          1
+        v240 |        582    6.139175    3.588979          1         12
+        v241 |        582    2012.034    3.811233       1995       2016
+        v242 |        582    1350.552    45.85658       1142       1404
+-------------+---------------------------------------------------------
+        v243 |        582     1.12543    1.594873          0          5
+        v245 |      6,315    .4177356    .7185507          0          7
+        v246 |      6,315    2.423278      1.3393          1         12
+        v312 |      6,315     2.28266    2.841178          0         17
+        v313 |      6,315    2.011718    1.360626          0          3
+-------------+---------------------------------------------------------
+        v315 |      4,379    6.410824    3.274691          1         12
+        v316 |      4,379    2021.272    .8035826       2019       2022
+        v317 |      4,379    1461.675    9.515625       1437       1476
+        v318 |      4,379           1           0          1          1
+        v319 |        124    1.330645     .472354          1          2
+-------------+---------------------------------------------------------
+        v320 |        124    2.822581    .9715329          1          5
+        v321 |        124    3.346774    1.044103          1          6
+       v321a |        120           0           0          0          0
+        v322 |        124    3.362903    .8865268          2          5
+        v323 |      2,064    5.225291    9.475182          1         98
+-------------+---------------------------------------------------------
+       v323a |        660     8.85303     18.3659          1         98
+        v326 |      3,928     31.8307    10.28002         11         96
+        v327 |      3,928    4.004837    1.439282          1          7
+        v337 |      4,379    12.14638    9.449067          0         36
+        v359 |      4,017    2.843167    2.693285          1         16
+-------------+---------------------------------------------------------
+        v360 |      4,017    3.059497    4.538919          1         98
+        v361 |      6,315    1.638163     1.05354          1          4
+        v362 |      1,936    3.208161    1.435092          2          5
+        v364 |      6,315     1.81061     1.13246          1          4
+        v367 |      5,664    1.278955    .5905925          1          3
+-------------+---------------------------------------------------------
+       v367a |      6,315    1.339192    .6524059          1          3
+        v379 |      6,315    55.54521    31.49342         11         98
+        v380 |      4,155    4.223105    1.668204          1          8
+       v384a |      6,315    .0178939    .1325764          0          1
+       v384b |      6,315    .2121932    .4088933          0          1
+-------------+---------------------------------------------------------
+       v384c |      6,315    .0361045     .186565          0          1
+       v384d |      6,315     .074901    .2632524          0          1
+       v384e |      6,315    .1114806    .3147513          0          1
+       v384f |      6,315     .152019    .3590677          0          1
+       v384g |      6,315    .2967538    .4568632          0          1
+-------------+---------------------------------------------------------
+       v384h |      6,315    .0571655    .2321769          0          1
+      v3a00a |      1,936    .0061983    .0785055          0          1
+      v3a00b |      1,936    .0232438    .1507158          0          1
+      v3a00c |      1,936    .1105372    .3136392          0          1
+      v3a00d |      1,936    .0356405    .1854401          0          1
+-------------+---------------------------------------------------------
+      v3a00e |      1,936    .2484504     .432226          0          1
+      v3a00f |      1,936    .1472107    .3544074          0          1
+      v3a00g |      1,936    .2438017    .4294854          0          1
+      v3a00h |      1,936    .0511364    .2203327          0          1
+      v3a00i |      1,936    .2122934    .4090371          0          1
+-------------+---------------------------------------------------------
+      v3a00q |      1,936    .0005165    .0227273          0          1
+      v3a00j |      1,936    .0247934    .1555351          0          1
+      v3a00k |      1,936    .6813017    .4660922          0          1
+      v3a00l |      1,936    .0278926    .1647076          0          1
+      v3a00m |      1,936    .0025826    .0507672          0          1
+-------------+---------------------------------------------------------
+      v3a00n |      1,936    .0630165    .2430555          0          1
+      v3a00o |      1,936    .0165289    .1275309          0          1
+      v3a00p |      1,936           0           0          0          0
+      v3a00r |      1,936    .0387397    .1930237          0          1
+      v3a00s |      1,936    .0082645     .090556          0          1
+-------------+---------------------------------------------------------
+      v3a00t |      1,936           0           0          0          0
+      v3a00u |      1,936    .0366736    .1880076          0          1
+      v3a00v |      1,936           0           0          0          0
+      v3a00w |      1,936    .0661157    .2485484          0          1
+      v3a00x |      1,936    .0005165    .0227273          0          1
+-------------+---------------------------------------------------------
+      v3a00y |      1,936    .1172521    .3218035          0          1
+      v3a00z |      1,936    .8827479    .3218035          0          1
+       v3a07 |        124    28.58065    10.55385         11         96
+      v3a08b |        883    .2423556    .4287512          0          1
+      v3a08c |        883    .1732729    .3786976          0          1
+-------------+---------------------------------------------------------
+      v3a08d |        883    .1630804    .3696484          0          1
+      v3a08e |        883    .0079275    .0887333          0          1
+      v3a08f |        883    .2491506    .4327663          0          1
+      v3a08g |        883    .0815402     .273818          0          1
+      v3a08h |        883     .011325    .1058748          0          1
+-------------+---------------------------------------------------------
+      v3a08i |        883    .0407701    .1978693          0          1
+      v3a08j |        883    .0249151    .1559546          0          1
+      v3a08k |        883      .00453    .0671908          0          1
+      v3a08l |        883    .0011325    .0336527          0          1
+      v3a08m |        883     .002265    .0475651          0          1
+-------------+---------------------------------------------------------
+      v3a08n |        883    .0033975     .058222          0          1
+      v3a08p |        883    .0192525    .1374893          0          1
+      v3a08q |        883           0           0          0          0
+      v3a08r |        883           0           0          0          0
+      v3a08s |        883      .01359    .1158471          0          1
+-------------+---------------------------------------------------------
+      v3a08t |        883    .0260476     .159367          0          1
+      v3a08u |        883     .002265    .0475651          0          1
+      v3a08v |        883           0           0          0          0
+      v3a08w |        883    .0079275    .0887333          0          1
+     v3a08aa |        883     .002265    .0475651          0          1
+-------------+---------------------------------------------------------
+     v3a08ab |        883      .00906    .0948057          0          1
+      v3a08x |        883    .0419026    .2004802          0          1
+      v3a08z |        883    .0079275    .0887333          0          1
+       v3a10 |      1,631    3.988964    .1816782          1          4
+       v3a13 |      6,315    .0223278     .147759          0          1
+-------------+---------------------------------------------------------
+        v401 |      5,653    .4484345    .4973779          0          1
+        v404 |      6,315    .7288994    .4445631          0          1
+        v405 |      6,315    .1716548      .37711          0          1
+        v406 |      6,315    .1344418    .3411534          0          1
+        v415 |      5,525    .1923982    .4426732          0          8
+-------------+---------------------------------------------------------
+        v417 |      6,315     1.21631    .4566269          1          4
+       v418a |      6,315    1.087886    .5433713          0          4
+        v419 |      6,315    1.087886    .5433713          0          4
+        v420 |      3,204    1051.135    588.4525        105       2007
+        v421 |      3,135    1055.337    588.2432        105       2007
+-------------+---------------------------------------------------------
+        v426 |      5,377    82.72568    60.22898          0        214
+        v437 |      3,204     590.235    771.0949        292       9996
+        v438 |      3,204    1578.293    717.8796       1292       9996
+        v445 |      3,181    2289.065    416.0801       1300       4509
+        v447 |      6,315    3.465241    3.495078          0          7
+-------------+---------------------------------------------------------
+       v446a |        415   -164.9759    74.29722       -358        102
+       v446d |        415   -28.01205    109.1994       -319        284
+       v447a |      3,204    25.93695    5.782111         15         45
+       v467b |      6,315    1.736975    .4403105          1          2
+       v467c |      6,315     1.53555    .4987741          1          2
+-------------+---------------------------------------------------------
+       v467d |      6,315    1.548852    .4976472          1          2
+       v467f |      6,315    1.592874    .4913376          1          2
+        v468 |      6,315           1           0          1          1
+        v481 |      6,315    .0036421    .0602448          0          1
+       v481a |      6,315    .0019002    .0435537          0          1
+-------------+---------------------------------------------------------
+       v481b |      6,315           0           0          0          0
+       v481c |      6,315    .0003167    .0177948          0          1
+       v481d |      6,315    .0009501    .0308118          0          1
+       v481x |      6,315    .0004751    .0217924          0          1
+        v501 |      6,315    1.031196    .3254719          1          5
+-------------+---------------------------------------------------------
+        v502 |      6,315     1.00966    .0978149          1          2
+        v503 |      6,315    1.033888    .1809541          1          2
+        v504 |      6,254    1.227055    .5649248          1          3
+        v507 |      6,315    6.303246    3.619718          1         12
+        v508 |      6,315    2013.433    5.905819       1990       2022
+-------------+---------------------------------------------------------
+        v509 |      6,315    1367.495    70.98056       1086       1474
+        v510 |      6,315    2.025178    1.939413          1          6
+        v511 |      6,315    17.15598    3.359642         10         44
+        v512 |      6,315    8.388915    5.911618          0         32
+        v513 |      6,315    2.265717    1.219245          1          7
+-------------+---------------------------------------------------------
+        v525 |      6,315    17.13112    3.010262          8         33
+        v527 |      6,315    153.0625    90.78471        100        420
+        v528 |      6,315    10.67173    11.47024          0         31
+        v529 |      6,315    142.5804    348.3412          0        997
+        v530 |      6,315    .9388757    2.577356          0          9
+-------------+---------------------------------------------------------
+        v531 |      6,315    17.22898    4.490953          8         97
+        v532 |      6,315    1.146002    2.279816          0          6
+        v535 |      6,315           1           0          1          1
+        v536 |      6,315      1.3365    .6830609          1          3
+        v537 |      1,357    8.394252    18.99899          0         97
+-------------+---------------------------------------------------------
+        v602 |      6,315    2.056374    .9950727          1          5
+        v603 |      2,774    337.1521     296.427        100        998
+        v604 |      2,774    3.722422     2.12164          0          8
+        v605 |      6,315    3.551861    1.571028          1          7
+        v613 |      6,315    2.472209    4.463768          0         96
+-------------+---------------------------------------------------------
+        v614 |      6,315    2.274584    .7303406          0          7
+        v616 |      2,774    337.1521     296.427        100        998
+        v621 |      6,130    1.314682    1.211247          1          8
+        v623 |      6,315    .5382423    .9430669          0          3
+        v624 |      6,312    3.919835    1.724093          1          9
+-------------+---------------------------------------------------------
+        v625 |      6,315    .5524941     .957387          0          3
+        v626 |      6,315    3.941251    1.742771          1          9
+       v625a |      6,315    .5068884     .923975          0          3
+       v626a |      6,315    3.847189    1.757897          1          9
+        v627 |      6,315    1.287411    4.494134          0         96
+-------------+---------------------------------------------------------
+        v628 |      6,315    1.218527    4.492355          0         96
+        v629 |      6,315     .391924    4.546159          0         96
+        v632 |      6,254    2.732651    .6543037          1          6
+        v635 |      5,008    2.009984    .3528822          1          3
+        v636 |      6,254    .0329389     .178491          0          1
+-------------+---------------------------------------------------------
+        v701 |      6,254    1.619923    1.015438          0          8
+        v702 |      5,301    3.841917    1.649901          0          8
+        v704 |      6,254     189.007    3994.622          0      99998
+       v704a |      6,254      1.0307    .3138942          0          8
+        v705 |      6,254    5.555325    4.488027          0         98
+-------------+---------------------------------------------------------
+        v714 |      6,315    .2243864    .4172106          0          1
+       v714a |      4,923    .0050782    .0710876          0          1
+        v715 |      6,254    7.229293    6.292223          0         98
+        v716 |      6,315    6.091053    12.84072          0         96
+        v717 |      6,315     1.47981    2.620796          0          9
+-------------+---------------------------------------------------------
+        v719 |      1,690    1.264497    .6450475          1          3
+        v729 |      6,315    2.593508    1.720101          0          8
+        v730 |      6,254    33.49744    7.350944         16         95
+        v731 |      6,315     .495962    .8454022          0          3
+        v732 |      1,690    1.353846    .7390007          1          3
+-------------+---------------------------------------------------------
+        v739 |      1,526    1.961992    .8855101          1          5
+        v741 |      1,690    .9627219    .3598002          0          3
+       v743a |      6,254    2.513751    1.066051          1          6
+       v743b |      6,254    2.776943     1.16329          1          6
+       v743d |      6,254    2.635114    1.146918          1          6
+-------------+---------------------------------------------------------
+       v743f |      6,254    2.753278    1.139292          1          7
+       v744a |      6,315    .1653207    .9629998          0          8
+       v744b |      6,315    .0885194    .4811159          0          8
+       v744c |      6,315    .1079968    .5316028          0          8
+       v744d |      6,315    .0519398    .4852862          0          8
+-------------+---------------------------------------------------------
+       v744e |      6,315    .0337292    .4282205          0          8
+       v745a |      6,315    .0817102    .4684938          0          5
+       v745b |      6,315    .0432304    .3186719          0          5
+       v745c |        241    .8713693    1.160123          0          8
+       v745d |        164    .9573171     .461401          0          2
+-------------+---------------------------------------------------------
+       pidxb |      6,315    .8907363    .4342423          0          3
+        pord |      6,315    2.315123    1.313227          1         12
+          p0 |      6,315    .0294537      .22105          0          3
+          p1 |      6,315    6.570863    3.555369          1         12
+          p2 |      6,315    2020.801    .9295924       2019       2022
+-------------+---------------------------------------------------------
+          p3 |      6,315    1456.184    10.59599       1436       1476
+          p4 |      5,342    1.487458    .4998895          1          2
+          p5 |      5,342    .9704231    .1694329          0          1
+          p6 |        158    131.2595    49.85791        100        302
+          p7 |        158    2.113924    5.333436          0         24
+-------------+---------------------------------------------------------
+          p8 |      5,184    .9521605    .8259882          0          2
+          p9 |      5,184    .0216049    .2932057          0          4
+         p10 |      6,315     .095962    .4565101          0          5
+         p11 |      4,255    57.82891     38.5237          1        261
+         p12 |        589    17.26995    7.009721          1         35
+-------------+---------------------------------------------------------
+         p13 |        158           0           0          0          0
+         p15 |      6,315    .0015835    .0397652          0          1
+         p16 |      5,184    4.866127    1.883501          0         25
+         p17 |      6,315    15.07759    8.826002          1         31
+         p18 |      6,315    44307.03    322.4559      43683      44899
+-------------+---------------------------------------------------------
+         p19 |      6,315    17.09375    10.49553          0         35
+         p20 |      6,315     8.10483     2.23446          1         10
+         p21 |      6,315    206.4926    12.64534        105        210
+         p30 |      6,315    1.314648     .768788          1          4
+         p31 |        130           0           0          0          0
+-------------+---------------------------------------------------------
+         p32 |      6,315    1.315123    .7695201          1          4
+        midx |      6,315    .8907363    .4342423          0          3
+       midxp |      6,315    1.108155    .3308473          1          4
+          m1 |      5,064    .9016588    1.263679          0          8
+         m1a |      3,804    3.677708    1.798623          0          8
+-------------+---------------------------------------------------------
+         m1d |      3,380    7.198225    4.802805          0         32
+         m2a |      5,187    .8326586    .3733164          0          1
+         m2b |      5,187    .1017929     .302405          0          1
+         m2c |      5,187    .0304608     .171868          0          1
+         m2d |      5,187    .0026991    .0518873          0          1
+-------------+---------------------------------------------------------
+         m2e |      5,187    .0026991    .0518873          0          1
+         m2f |      5,187    .0233275    .1509562          0          1
+         m2g |      5,187    .0023135    .0480476          0          1
+         m2h |      5,187    .0107962    .1033524          0          1
+         m2i |      5,187    .0240987    .1533705          0          1
+-------------+---------------------------------------------------------
+         m2j |      5,187    .0327742    .1780624          0          1
+         m2l |      5,187    .0013495    .0367147          0          1
+         m2m |      5,187    .0188934    .1361617          0          1
+         m2k |      5,187    .0017351    .0416225          0          1
+         m2n |      5,187    .0821284    .2745867          0          1
+-------------+---------------------------------------------------------
+         m3a |      5,469    .5516548    .4973701          0          1
+         m3b |      5,469    .6041324     .489081          0          1
+         m3c |      5,469    .0100567    .0997866          0          1
+         m3d |      5,469    .0020113    .0448069          0          1
+         m3e |      5,469    .0009142    .0302254          0          1
+-------------+---------------------------------------------------------
+         m3f |      5,469    .0025599    .0505351          0          1
+         m3h |      5,469    .0025599    .0505351          0          1
+         m3i |      5,469    .0054855    .0738673          0          1
+         m3j |      5,469    .0042055    .0647194          0          1
+         m3g |      5,469     .081002    .2728632          0          1
+-------------+---------------------------------------------------------
+         m3k |      5,469    .2122874    .4089646          0          1
+         m3l |      5,469    .0213933    .1447047          0          1
+         m3m |      5,469    .2920095    .4547282          0          1
+         m3o |      5,469      .06162    .2404861          0          1
+         m3x |      5,469    .0058512    .0762757          0          1
+-------------+---------------------------------------------------------
+         m3n |      5,469    .0007314    .0270369          0          1
+          m4 |      5,342    94.59828    .7674701         93         95
+          m5 |      5,342    32.40958    34.05558          0         94
+          m6 |      5,726    97.66993    .7424921         96         98
+          m7 |      5,726    83.11369    33.67219          0         98
+-------------+---------------------------------------------------------
+          m8 |      5,726    97.73699    .6759636         96         98
+          m9 |      5,726    86.29008    30.33536          0         98
+         m10 |      6,315    1.308472    .6296316          1          3
+         m11 |        792     217.428    116.8289        102        998
+         m13 |      4,761    4.392985    3.124575          1         98
+-------------+---------------------------------------------------------
+        m13a |      4,761    203.1533    23.83309        104        998
+         m14 |      5,187    3.274532    2.635713          0         98
+         m15 |      5,469    23.67947    10.79918         11         96
+         m17 |      5,457    .4399853    .4964307          0          1
+         m18 |      5,342    3.049232    .5651774          1          8
+-------------+---------------------------------------------------------
+         m19 |      5,342    5527.947    3416.959        500       9998
+        m19a |      5,342    1.448334    1.555516          0          8
+         m34 |      5,058    82.83017    60.01261          0        215
+         m38 |      5,184    .1930941    .4697512          0          8
+        m39a |      3,457    .7101533    .4537567          0          1
+-------------+---------------------------------------------------------
+         m39 |      3,457    2.666474    2.383783          0          8
+        m42a |      4,761    .9187146    .3489307          0          8
+        m42c |      4,761    .9371981    .3430652          0          8
+        m42d |      4,761    .8286074    .4069108          0          8
+        m42e |      4,761    .8021424    .4404968          0          8
+-------------+---------------------------------------------------------
+        m42l |      4,761     .936778    .2433874          0          1
+        m42m |      4,761    .5070363    .5557216          0          8
+        m42n |      4,761    .3056081    .6043158          0          8
+         m45 |      5,187    .7931367    .4309282          0          8
+         m46 |      4,098    110.9714    78.11719          0        998
+-------------+---------------------------------------------------------
+         m55 |      5,058    .2566232    .4368128          0          1
+        m57a |      4,761     .063012      .24301          0          1
+        m57e |      4,761    .0063012    .0791379          0          1
+        m57f |      4,761    .0340265    .1813162          0          1
+        m57g |      4,761    .0691031    .2536561          0          1
+-------------+---------------------------------------------------------
+        m57h |      4,761    .0298257     .170124          0          1
+        m57i |      4,761    .1237135     .329289          0          1
+        m57j |      4,761    .0453686    .2081331          0          1
+        m57k |      4,761    .0468389    .2113159          0          1
+        m57l |      4,761    .0060912     .077816          0          1
+-------------+---------------------------------------------------------
+       m57lx |      4,761    .0016803    .0409615          0          1
+        m57m |      4,761    .1724428    .3778045          0          1
+        m57n |      4,761    .0084016     .091284          0          1
+        m57o |      4,761    .4381432    .4962111          0          1
+        m57p |      4,761    .1113212    .3145625          0          1
+-------------+---------------------------------------------------------
+        m57q |      4,761    .0048309     .069344          0          1
+        m57r |      4,761    .0073514    .0854335          0          1
+       m57rx |      4,761    .0006301    .0250969          0          1
+       m57nb |      4,761    .0449485    .2072129          0          1
+       m57nc |      4,761     .005461    .0737045          0          1
+-------------+---------------------------------------------------------
+        m57x |      4,761    .0063012    .0791379          0          1
+         m61 |      3,317    190.8909    45.60597        100        998
+         m62 |      3,317    .8776002    .3277964          0          1
+         m63 |      2,911    131.3858    84.81499        100        998
+         m64 |      2,911     11.4878     2.61947         11         96
+-------------+---------------------------------------------------------
+         m66 |      5,176    .4406878    .4965176          0          1
+         m67 |      2,281    163.0123     76.5734        100        998
+         m68 |      2,281     18.7317    10.39876         11         96
+         m69 |      2,281    22.31784    13.77518         11         96
+         m70 |      5,054     .443609    .6340538          0          8
+-------------+---------------------------------------------------------
+         m71 |      2,130    159.6535    66.94432        100        998
+         m72 |      2,130    20.02958    10.84246         11         96
+         m73 |      2,130    22.29296    16.42666         11         96
+         m74 |      3,240    .9253086    .6832185          0          8
+         m75 |      2,814    131.8948     111.035        100        998
+-------------+---------------------------------------------------------
+         m76 |      2,814    11.37349    1.333543         11         34
+         m77 |      5,064    .9354265    1.165022          0          8
+        m77a |      1,291    1.005422    3.673809          0         24
+        m78a |      5,064    .7654028    .9934904          0          8
+        m78b |      5,064    .7738942    .9855873          0          8
+-------------+---------------------------------------------------------
+        m78c |      5,064    .3904028     .797633          0          8
+        m78d |      5,064    .6542259    .6262337          0          8
+        m78e |      5,064    .5683254    .6326365          0          8
+        m78f |      5,187    .5982263    .7067936          0          8
+        m78g |      5,187     .481203    .6070224          0          8
+-------------+---------------------------------------------------------
+        m78h |      5,187    .2616156    .6311718          0          8
+        m78j |      5,187    .4505495    .6483635          0          8
+        m78k |      5,187    .6595334     .585981          0          8
+        m78l |      5,187    .3013302    .6613133          0          8
+         m80 |      6,315    1.620744    1.373345          1          5
+-------------+---------------------------------------------------------
+        mnb1 |      5,064    201.8327    116.3612          0        998
+        mnb3 |      1,824    1.241228     1.00188          1          8
+        mnb4 |      1,799    1.098388    .7912147          1          8
+        mnb5 |      1,799    1.158977    1.309784          0          8
+        mnb6 |      5,064    1.184637    1.794739          0          8
+-------------+---------------------------------------------------------
+       mnb7a |      3,511    .4411848    .4965995          0          1
+       mnb7b |      3,511    .2953574    .4562683          0          1
+       mnb7c |      3,511    .2788379    .4484915          0          1
+       mnb7d |      3,511    .0056964    .0752698          0          1
+       mnb7e |      3,511    .0011393    .0337387          0          1
+-------------+---------------------------------------------------------
+       mnb7x |      3,511    .0640843    .2449379          0          1
+       mnb7z |      3,511    .0225007    .1483263          0          1
+       mnb10 |      1,962    .6656473    1.969252          0          8
+       mnb11 |      1,831    199.6565    246.5265        100        998
+       mnb12 |      1,831     3.23539    2.316907          1          8
+-------------+---------------------------------------------------------
+     seligbm |      6,315    1.492637    .4999854          1          2
+       sbpbg |      6,315    .2677751    .4428348          0          1
+       sdist |      6,315    49.72922    27.88466          1         94
+      sqtype |      6,315           1           0          1          1
+       s111a |      6,315    1.020586    .2405397          1          5
+-------------+---------------------------------------------------------
+        s113 |      6,315    .9453682    .2272782          0          1
+       s113a |      5,970    1.062312    .2417408          1          2
+        s114 |      6,315    7.148535     21.6112          1         97
+        s115 |      5,970    8.359631    3.519395          0         18
+      s115_1 |      6,315     2.81251    1.155067          0          4
+-------------+---------------------------------------------------------
+       s230a |      6,315    .0555819    .2502741          0          2
+       s230c |        319    1.003135    .0559893          1          2
+      s331ay |      1,936    .0036157    .0600374          0          1
+       s331b |      6,315    .3034046    .7088603          0          3
+      s331ca |      1,213     .561418    .4964182          0          1
+-------------+---------------------------------------------------------
+      s331cb |      1,213    .2547403    .4358949          0          1
+      s331cc |      1,213    .1970322    .3979209          0          1
+      s331cx |      1,213    .0057708    .0757776          0          1
+       s331d |      1,213    2.832646    7.119503          1         98
+       s331e |      1,213    1.996702    1.704195          0          8
+-------------+---------------------------------------------------------
+      s636dn |         50        1.84    1.475791          1          7
+       s709a |        971    32.40268    41.10875          1         96
+       s716a |      6,315    2.203642    .5892227          1          3
+       s716b |      2,454    18.42013    1.212425         13         26
+       s716c |      6,315     .714331    .4517683          0          1
+-------------+---------------------------------------------------------
+       s716d |      4,511    .4393704    .9783882          0          4
+       s716e |      6,315    .1002375    .3003402          0          1
+       s716f |        633    1.175355    1.523827          0          4
+       s723a |      6,024    5.272244    5.869938          0         95
+       s812a |      1,122     16.9795    30.25822          1         98
+-------------+---------------------------------------------------------
+       s812b |        801    38.97129    28.79866         21         98
+       s816a |      6,315    .1053048    .3069701          0          1
+       s816b |        665    1.452632    1.175015          1          8
+        s903 |      6,254    .8495363    .3575539          0          1
+       s903a |      5,313    1.036891     .188511          1          2
+-------------+---------------------------------------------------------
+        s904 |      5,313    1.906832    .8164445          1          8
+        s905 |      5,301    8.305603    4.198583          0         18
+      s1115a |      6,315    .0175772    .1314191          0          1
+      s905_1 |      6,242    2.401153    1.429624          0          4
+       smth6 |      6,315    .0147268    .1204668          0          1
+-------------+---------------------------------------------------------
+       idx92 |      6,315    .8907363    .4342423          0          3
+      idx92p |      6,315    1.108155    .3308473          1          4
+      s228bd |        291     37.1134    37.73196          1         98
+      s228bm |        291    11.26117     21.9204          1         98
+      s228by |        291    2014.045     6.32467       1992       2022
+-------------+---------------------------------------------------------
+       idx94 |      6,315    .8907363    .4342423          0          3
+      idx94p |      6,315    1.108155    .3308473          1          4
+        s440 |      1,291    38.46398    51.47959          0        204
+       s435a |      3,470    .3665706    .8035167          0          3
+      s435ba |        718    .7437326    .4368756          0          1
+-------------+---------------------------------------------------------
+      s435bb |        718    .6601671    .4739825          0          1
+      s435bc |        718    .5891365    .4923335          0          1
+      s435bd |        718    .3440111    .4753759          0          1
+      s435be |        718    .3635097    .4813451          0          1
+      s435bf |        718    .3370474    .4730307          0          1
+-------------+---------------------------------------------------------
+      s435bg |        718    .2284123    .4201022          0          1
+      s435bh |        718    .8064067    .3953893          0          1
+       s436a |      3,470     28407.7    94969.29          0     999998
+      s436ba |      3,470     .854755    .3523984          0          1
+      s436bb |      3,470    .2040346    .4030525          0          1
+-------------+---------------------------------------------------------
+      s436bc |      3,470     .018732    .1355965          0          1
+      s436bd |      3,470    .2590778    .4381915          0          1
+      s436be |      3,470    .0054755    .0738044          0          1
+      s436bf |      3,470    .0008646    .0293948          0          1
+      s436bg |      3,470    .0002882     .016976          0          1
+-------------+---------------------------------------------------------
+      s436bx |      3,470    .0017291    .0415525          0          1
+        s446 |      3,317    1.045222    .2463343          0          2
+        anc4 |      5,186    .4051292    .4909644          0          1
+facility_del |      5,452    .6386647    .4804315          0          1
+  anc_doctor |      5,187    .8326586    .3733164          0          1
+-------------+---------------------------------------------------------
+   iron_supp |      5,185    .7903568    .4070932          0          1
+   anc_first |      4,758    .4216057     .493868          0          1
+   edu_level |      6,315    1.849248    .7879843          0          3
+    edu_none |      6,315    .0546318    .2272782          0          1
+ edu_primary |      6,315    .2332542    .4229361          0          1
+-------------+---------------------------------------------------------
+edu_second~y |      6,315    .5203484    .4996253          0          1
+  edu_higher |      6,315    .1917656    .3937209          0          1
+     edu_yrs |      6,315     7.90293    3.913976          0         18
+      wealth |      6,315    2.972447    1.419535          1          5
+   wealth_q1 |      6,315    .2087094    .4064184          0          1
+-------------+---------------------------------------------------------
+   wealth_q2 |      6,315    .1996833    .3997939          0          1
+   wealth_q3 |      6,315    .1977831    .3983592          0          1
+   wealth_q4 |      6,315    .1980998    .3985993          0          1
+   wealth_q5 |      6,315    .1957245    .3967888          0          1
+       rural |      6,315    .6619161    .4730947          0          1
+-------------+---------------------------------------------------------
+  mother_age |      6,315    25.98416    5.823048         15         49
+mother_age~d |      6,315    7.09e-09           1  -1.886326   3.952541
+mother_age~q |      6,315    709.0793    323.1131        225       2401
+      parity |      6,315    1.107522    .3262346          1          3
+       par_1 |      6,315    .8977039    .3030613          0          1
+-------------+---------------------------------------------------------
+       par_2 |      6,315    .0970705    .2960771          0          1
+   par_3plus |      6,315    .0052257    .0721053          0          1
+    division |      6,315    4.354078    2.277275          1          8
+ div_Barisal |      6,315    .1060966    .3079856          0          1
+div_Chatto~m |      6,315    .1689628    .3747487          0          1
+-------------+---------------------------------------------------------
+   div_Dhaka |      6,315     .152019    .3590677          0          1
+  div_Khulna |      6,315     .111639    .3149467          0          1
+div_Mymens~h |      6,315    .1211401    .3263159          0          1
+div_Rajshahi |      6,315    .1000792    .3001293          0          1
+ div_Rangpur |      6,315    .1192399    .3240963          0          1
+-------------+---------------------------------------------------------
+  div_Sylhet |      6,315    .1208234    .3259478          0          1
+      weight |      6,315    1.010455    .5151097    .091325   3.891736
+matsize too small
+    You have attempted to create a matrix with too many rows or columns or attempted to fit a model with too many variables.  You need to increase
+    matsize; it is currently 800.  Use set matsize; see help matsize.
+
+    If you are using factor variables and included an interaction that has lots of missing cells, either increase matsize or set emptycells drop to
+    reduce the required matrix size; see help set emptycells.
+
+    If you are using factor variables, you might have accidentally treated a continuous variable as a categorical, resulting in lots of categories.
+    Use the c. operator on such variables.
+r(908);
+
+. tabstat anc4 facility_del anc_doctor iron_supp anc_first edu_none edu_primary edu_secondary edu_higher wealth rural mother_age parity, statistics(mean 
+> sd min max n) columns(statistics) save
+
+    variable |      mean        sd       min       max         N
+-------------+--------------------------------------------------
+        anc4 |  .4051292  .4909644         0         1      5186
+facility_del |  .6386647  .4804315         0         1      5452
+  anc_doctor |  .8326586  .3733164         0         1      5187
+   iron_supp |  .7903568  .4070932         0         1      5185
+   anc_first |  .4216057   .493868         0         1      4758
+    edu_none |  .0546318  .2272782         0         1      6315
+ edu_primary |  .2332542  .4229361         0         1      6315
+edu_second~y |  .5203484  .4996253         0         1      6315
+  edu_higher |  .1917656  .3937209         0         1      6315
+      wealth |  2.972447  1.419535         1         5      6315
+       rural |  .6619161  .4730947         0         1      6315
+  mother_age |  25.98416  5.823048        15        49      6315
+      parity |  1.107522  .3262346         1         3      6315
+----------------------------------------------------------------
+
+. foreach outcome in anc4 facility_del anc_doctor iron_supp anc_first {
+  2.     di _newline "=== `outcome' by education level ==="
+  3.     tab edu_level `outcome', row chi2
+  4. }
+
+=== anc4 by education level ===
+
++----------------+
+| Key            |
+|----------------|
+|   frequency    |
+| row percentage |
++----------------+
+
+    Maternal |    Received 4+ ANC
+   education |    visits (1=yes)
+       level |        No        Yes |     Total
+-------------+----------------------+----------
+No education |       219         56 |       275 
+             |     79.64      20.36 |    100.00 
+-------------+----------------------+----------
+     Primary |       878        322 |     1,200 
+             |     73.17      26.83 |    100.00 
+-------------+----------------------+----------
+   Secondary |     1,639      1,094 |     2,733 
+             |     59.97      40.03 |    100.00 
+-------------+----------------------+----------
+      Higher |       349        629 |       978 
+             |     35.69      64.31 |    100.00 
+-------------+----------------------+----------
+       Total |     3,085      2,101 |     5,186 
+             |     59.49      40.51 |    100.00 
+
+          Pearson chi2(3) = 369.6757   Pr = 0.000
+
+=== facility_del by education level ===
+
++----------------+
+| Key            |
+|----------------|
+|   frequency    |
+| row percentage |
++----------------+
+
+    Maternal |  Delivered in health
+   education |   facility (1=yes)
+       level |        No        Yes |     Total
+-------------+----------------------+----------
+No education |       179        113 |       292 
+             |     61.30      38.70 |    100.00 
+-------------+----------------------+----------
+     Primary |       680        591 |     1,271 
+             |     53.50      46.50 |    100.00 
+-------------+----------------------+----------
+   Secondary |       981      1,888 |     2,869 
+             |     34.19      65.81 |    100.00 
+-------------+----------------------+----------
+      Higher |       130        890 |     1,020 
+             |     12.75      87.25 |    100.00 
+-------------+----------------------+----------
+       Total |     1,970      3,482 |     5,452 
+             |     36.13      63.87 |    100.00 
+
+          Pearson chi2(3) = 492.7367   Pr = 0.000
+
+=== anc_doctor by education level ===
+
++----------------+
+| Key            |
+|----------------|
+|   frequency    |
+| row percentage |
++----------------+
+
+    Maternal |  Doctor-attended ANC
+   education |        (1=yes)
+       level |        No        Yes |     Total
+-------------+----------------------+----------
+No education |       106        170 |       276 
+             |     38.41      61.59 |    100.00 
+-------------+----------------------+----------
+     Primary |       305        895 |     1,200 
+             |     25.42      74.58 |    100.00 
+-------------+----------------------+----------
+   Secondary |       404      2,329 |     2,733 
+             |     14.78      85.22 |    100.00 
+-------------+----------------------+----------
+      Higher |        53        925 |       978 
+             |      5.42      94.58 |    100.00 
+-------------+----------------------+----------
+       Total |       868      4,319 |     5,187 
+             |     16.73      83.27 |    100.00 
+
+          Pearson chi2(3) = 255.2871   Pr = 0.000
+
+=== iron_supp by education level ===
+
++----------------+
+| Key            |
+|----------------|
+|   frequency    |
+| row percentage |
++----------------+
+
+             |     Received iron
+    Maternal |    supplementation
+   education |        (1=yes)
+       level |        No        Yes |     Total
+-------------+----------------------+----------
+No education |       119        157 |       276 
+             |     43.12      56.88 |    100.00 
+-------------+----------------------+----------
+     Primary |       367        833 |     1,200 
+             |     30.58      69.42 |    100.00 
+-------------+----------------------+----------
+   Secondary |       512      2,219 |     2,731 
+             |     18.75      81.25 |    100.00 
+-------------+----------------------+----------
+      Higher |        89        889 |       978 
+             |      9.10      90.90 |    100.00 
+-------------+----------------------+----------
+       Total |     1,087      4,098 |     5,185 
+             |     20.96      79.04 |    100.00 
+
+          Pearson chi2(3) = 239.9264   Pr = 0.000
+
+=== anc_first by education level ===
+
++----------------+
+| Key            |
+|----------------|
+|   frequency    |
+| row percentage |
++----------------+
+
+    Maternal | 1st ANC visit in 1st
+   education |   trimester (1=yes)
+       level |        No        Yes |     Total
+-------------+----------------------+----------
+No education |       143         59 |       202 
+             |     70.79      29.21 |    100.00 
+-------------+----------------------+----------
+     Primary |       719        310 |     1,029 
+             |     69.87      30.13 |    100.00 
+-------------+----------------------+----------
+   Secondary |     1,536      1,031 |     2,567 
+             |     59.84      40.16 |    100.00 
+-------------+----------------------+----------
+      Higher |       354        606 |       960 
+             |     36.88      63.13 |    100.00 
+-------------+----------------------+----------
+       Total |     2,752      2,006 |     4,758 
+             |     57.84      42.16 |    100.00 
+
+          Pearson chi2(3) = 252.2310   Pr = 0.000
+
+. preserve
+
+.     keep anc4 facility_del anc_doctor iron_supp anc_first edu_level
+
+.     collapse (mean) anc4 facility_del anc_doctor iron_supp anc_first, ///
+option / not allowed
+r(198);
+
+.         by(edu_level)
+: required
+r(100);
+
+.     foreach v in anc4 facility_del anc_doctor iron_supp anc_first {
+  2.         replace `v' = `v' * 100   /* convert to percentage */
+  3.     }
+100/ invalid name
+r(198);
+
+.     label values edu_level edu_lbl
+
+. 
+.     * Grouped bar chart: all 5 outcomes side by side by education
+
+.     graph bar anc4 facility_del anc_doctor iron_supp anc_first, ///
+option / not allowed
+r(198);
+
+.         over(edu_level, label(angle(15))) ///
+command over is unrecognized
+r(199);
+
+.         bargap(10) outergap(20) ///
+command bargap is unrecognized
+r(199);
+
+.         legend(order(1 "ANC 4+" 2 "Facility Delivery" 3 "Doctor ANC" ///
+command legend is unrecognized
+r(199);
+
+.                      4 "Iron Supplement" 5 "1st Trim. ANC") ///
+4 is not a valid command name
+r(199);
+
+.                rows(2) size(small)) ///
+command rows is unrecognized
+r(199);
+
+.         ytitle("Prevalence (%)") ///
+command ytitle is unrecognized
+r(199);
+
+.         title("Maternal Health Service Utilisation by Education Level" ///
+command title is unrecognized
+r(199);
+
+.               "(BDHS 2022)", size(medsmall)) ///
+"(BDHS 2022) is not a valid command name
+r(199);
+
+.         note("Source: BDHS 2022. N ≈ 5,000–5,500 per outcome.") ///
+type mismatch
+r(109);
+
+.         scheme(s1color) name(fig1_edu, replace)
+scheme is a class
+r(4002);
+
+.     graph export "$outdir/fig1_education.png", replace width(1400)
+could not find Graph window
+r(693);
+
+. restore
+
+. preserve
+
+.     keep anc4 facility_del anc_doctor iron_supp anc_first edu_level
+
+.     collapse (mean) anc4 facility_del anc_doctor iron_supp anc_first, by(edu_level)
+
+.     foreach v in anc4 facility_del anc_doctor iron_supp anc_first {
+  2.         replace `v' = `v' * 100
+  3.     }
+(4 real changes made)
+(4 real changes made)
+(4 real changes made)
+(4 real changes made)
+(4 real changes made)
+
+.     label values edu_level edu_lbl
+
+. 
+.     graph bar anc4 facility_del anc_doctor iron_supp anc_first, over(edu_level, label(angle(15))) bargap(10) outergap(20) legend(order(1 "ANC 4+" 2 "Fa
+> cility Delivery" 3 "Doctor ANC" 4 "Iron Supplement" 5 "1st Trim. ANC") rows(2) size(small)) ytitle("Prevalence (%)") "(BDHS 2022)", size(medsmall)) not
+> e("Source: BDHS 2022. N ≈ 5,000–5,500 per outcome.") scheme(s1color) name(fig1_edu, replace)
+invalid 'size' 
+r(198);
+
+.     graph export "$outdir/fig1_education.png", replace width(1400)
+could not find Graph window
+r(693);
+
+. restore
+
